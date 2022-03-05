@@ -1,0 +1,22 @@
+[
+  {
+    "station": "NPO Radio 1",
+    "url": "https://icecast.omroep.nl/radio1-bb-aac"
+  },
+  {
+    "station": "NPO Radio 2",
+    "url": "https://icecast.omroep.nl/radio2-bb-aac"
+  },
+  {
+    "station": "3FM",
+    "url": "https://icecast.omroep.nl/3fm-bb-aac"
+  },
+  {
+    "station": "NPO Radio 4",
+    "url": "https://icecast.omroep.nl/radio4-bb-aac"
+  },
+  {
+    "station": "Kink",
+    "url": "https://playerservices.streamtheworld.com/api/livestream-redirect/KINKAAC.aac"
+  }
+]
