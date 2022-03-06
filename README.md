@@ -9,3 +9,9 @@ sudo apt-get install mpd
 
 music player client
 sudo apt-get install mpc
+
+find pid
+pidof node
+
+kill process
+sudo kill -9 1234
