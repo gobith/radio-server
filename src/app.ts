@@ -20,15 +20,17 @@ const display = () => {
   if (playing) {
     status = "ON";
   }
-  if (index) {
-    return { ...radio_list[index], status: status };
+  let object;
+  if (index !== undefined) {
+    object = { ...radio_list[index], status: status };
   } else {
-    return { station: "NONE", status: status };
+    object = { station: "NONE", status: status };
   }
+  return object;
 };
 
 const ensure_play = () => {
-  if (index) {
+  if (index !== undefined) {
     if (playing) {
       mpc.playback.play(index);
     } else {
@@ -57,7 +59,13 @@ app.post(
     index = radio_list.findIndex((item) => {
       return item.station === req.body.station;
     });
+
+    console.log("change station index", index);
+
     ensure_play();
+
+    console.log(display());
+
     res.json(display());
   }
 );
