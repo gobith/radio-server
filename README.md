@@ -15,3 +15,26 @@ pidof node
 
 kill process
 sudo kill -9 1234
+
+systemd
+sudo nano /lib/systemd/system/radio.service
+
+[Unit]
+Description=Internet radion for raspberry pi
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=node /home/pi/apps/radio-server/dist/src/app.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+systemd control:
+sudo systemctl daemon-reload
+
+sudo systemctl start radio
+
+journalctl -u radio.service
