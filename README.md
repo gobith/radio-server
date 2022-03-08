@@ -19,22 +19,30 @@ sudo kill -9 1234
 systemd
 sudo nano /lib/systemd/system/radio.service
 
+
+-------------
+
 [Unit]
-Description=Internet radion for raspberry pi
+Description=Internet radio for raspberry pi
 After=network.target
 
 [Service]
 Type=simple
 User=pi
-ExecStart=node /home/pi/apps/radio-server/dist/src/app.js
+WorkingDirectory= /home/pi/apps/radio-server/dist/src/
+ExecStart=node app.js
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
 
+-------------
+
 systemd control:
 sudo systemctl daemon-reload
 
 sudo systemctl start radio
+
+sudo systemctl enable radio
 
 journalctl -u radio.service
